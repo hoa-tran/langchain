@@ -25,9 +25,9 @@ def gen_text(txt_prompt: str) -> str:
 
 
 def main():
-    st.title('🤓 Article draft generator')
+    st.title('🤖 Article draft generator')
     form = st.form(key='my_form')
-    subject_input = form.text_input(label="What is the topic? 🤠")
+    subject_input = form.text_input(label="**What is the topic?** 🤓")
     submit_button = form.form_submit_button(label='**Submit**')
     if submit_button:
         draft = gen_text(subject_input)
