@@ -20,7 +20,7 @@ def gen_text(txt_prompt: str) -> str:
 
     second_prompt = PromptTemplate(
         input_variables=["title"],
-        template="What is a good blog post that describe what is good to do regarding {title}?",
+        template="What is a good blog post that describe advice regarding {title}?",
     )
     chain_two = LLMChain(llm=llm, prompt=second_prompt)
 
@@ -30,7 +30,7 @@ def gen_text(txt_prompt: str) -> str:
 
 
 def main():
-    st.title('🤖 Ask me for some advice')
+    st.title('🤖 Ask me how to do stuff')
     form = st.form(key='my_form')
     subject_input = form.text_input(label="**What do you want advice on?** 🤓")
     submit_button = form.form_submit_button(label='**Submit**')
