@@ -3,10 +3,15 @@ from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.chains import SimpleSequentialChain
-import open_ai
+#import open_ai
+
+@st.experimental_memo
+def get_llm():
+    return OpenAI(temperature=0.9)
+
 
 def gen_text(txt_prompt: str) -> str:
-    llm = OpenAI(temperature=0.9, openai_api_key=open_ai.api_key)
+    llm = get_llm() #openai_api_key=open_ai.api_key)
     prompt = PromptTemplate(
         input_variables=["event"],
         template="What is a good blog post title for the {event}?",
@@ -32,6 +37,7 @@ def main():
     if submit_button:
         draft = gen_text(subject_input)
         st.write(draft)
+
 
 if __name__ == "__main__":
     main() 
