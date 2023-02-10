@@ -1,6 +1,5 @@
 import openai
 import streamlit as st
-import open_ai
 
 st.title('🤖 Ask me anything')
 placeholder_response_user_input = st.empty()
